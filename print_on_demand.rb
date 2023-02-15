@@ -22,9 +22,9 @@ def print_line(sonnet,line)
   puts "#{@all_sonnets[sonnet][line][1]}"
 end
 
-def print_sonnet(sonnet_number)
+def print_sonnet(sonnet_number, replace_lines_int)
   lines_to_replace = Set[]
-  @all_rand[0..1077].each do |thispair|
+  @all_rand[0..replace_lines_int].each do |thispair|
     if thispair[0] == sonnet_number
       lines_to_replace.add(thispair[1])
     end
@@ -47,15 +47,37 @@ def print_sonnet(sonnet_number)
 end
 
 
-def print_on_demand(sonnet_number)
-  print_sonnet(sonnet_number)
+def print_on_demand(sonnet_number, replace_lines_int)
+  print_sonnet(sonnet_number, replace_lines_int)
 end
 
-for i in (0..153)
+puts "First sonnet: "
+first_sonnet = gets.chomp
+if first_sonnet.to_s.empty?
+  puts "Using 1"
+  first_sonnet = '1'
+end
+puts "Last sonnet: "
+last_sonnet = gets.chomp
+if last_sonnet.to_s.empty?
+  puts "Using 154"
+  last_sonnet = '154'
+end
+puts "How many lines to replace (0 for all Shakespeare, 2156 for all new "
+replace_lines = gets.chomp
+if replace_lines.to_s.empty?
+  puts "Using 0 (all Shakespeare)"
+  replace_lines = '0'
+end
+
+first_index = first_sonnet.to_i - 1
+last_index = last_sonnet.to_i - 1
+replace_lines_int = replace_lines.to_i
+for i in (first_index..last_index)
 #for i in (75..75)
 #for i in (0..20)
   puts "SONNET #{i+1}\n\n"
   sonnet_number = i
-  print_on_demand(sonnet_number)
+  print_on_demand(sonnet_number, replace_lines_int)
   puts "\n*****************\n"
 end
