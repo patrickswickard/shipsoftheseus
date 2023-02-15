@@ -63,7 +63,7 @@ if last_sonnet.to_s.empty?
   puts "Using 154"
   last_sonnet = '154'
 end
-puts "How many lines to replace (0 for all Shakespeare, 2156 for all new "
+puts "How many lines to replace (0 for all Shakespeare, 2156 for all new)"
 replace_lines = gets.chomp
 if replace_lines.to_s.empty?
   puts "Using 0 (all Shakespeare)"
