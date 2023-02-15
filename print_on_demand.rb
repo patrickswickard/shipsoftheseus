@@ -36,7 +36,7 @@ def print_sonnet(sonnet_number)
     if thisline[1].to_s.empty?
       puts thisline[0]
     else
-      if lines_to_replace === curline
+      if lines_to_replace.include? curline
         puts "** #{thisline[1]}"
       else
         puts "#{thisline[0]}"
@@ -51,9 +51,9 @@ def print_on_demand(sonnet_number)
   print_sonnet(sonnet_number)
 end
 
-#for i in (0..153)
+for i in (0..153)
 #for i in (75..75)
-for i in (0..9)
+#for i in (0..20)
   puts "SONNET #{i+1}\n\n"
   sonnet_number = i
   print_on_demand(sonnet_number)
