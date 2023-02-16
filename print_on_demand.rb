@@ -46,38 +46,36 @@ def print_sonnet(sonnet_number, replace_lines_int)
   end
 end
 
+def print_on_demand()
+  puts "First sonnet: "
+  first_sonnet = gets.chomp
+  if first_sonnet.to_s.empty?
+    puts "Using 1"
+    first_sonnet = '1'
+  end
+  puts "Last sonnet: "
+  last_sonnet = gets.chomp
+  if last_sonnet.to_s.empty?
+    puts "Using 154"
+    last_sonnet = '154'
+  end
+  puts "How many lines to replace (0 for all Shakespeare, 2156 for all new)"
+  replace_lines = gets.chomp
+  if replace_lines.to_s.empty?
+    puts "Using 0 (all Shakespeare)"
+    replace_lines = '0'
+  end
 
-def print_on_demand(sonnet_number, replace_lines_int)
-  print_sonnet(sonnet_number, replace_lines_int)
-end
-
-puts "First sonnet: "
-first_sonnet = gets.chomp
-if first_sonnet.to_s.empty?
-  puts "Using 1"
-  first_sonnet = '1'
-end
-puts "Last sonnet: "
-last_sonnet = gets.chomp
-if last_sonnet.to_s.empty?
-  puts "Using 154"
-  last_sonnet = '154'
-end
-puts "How many lines to replace (0 for all Shakespeare, 2156 for all new)"
-replace_lines = gets.chomp
-if replace_lines.to_s.empty?
-  puts "Using 0 (all Shakespeare)"
-  replace_lines = '0'
-end
-
-first_index = first_sonnet.to_i - 1
-last_index = last_sonnet.to_i - 1
-replace_lines_int = replace_lines.to_i
-for i in (first_index..last_index)
-#for i in (75..75)
-#for i in (0..20)
-  puts "SONNET #{i+1}\n\n"
-  sonnet_number = i
-  print_on_demand(sonnet_number, replace_lines_int)
+  first_index = first_sonnet.to_i - 1
+  last_index = last_sonnet.to_i - 1
+  replace_lines_int = replace_lines.to_i
+  for i in (first_index..last_index)
+    puts "\n*****************\n"
+    puts "SONNET #{i+1}\n\n"
+    sonnet_number = i
+    print_sonnet(sonnet_number, replace_lines_int)
+  end
   puts "\n*****************\n"
 end
+
+print_on_demand()
