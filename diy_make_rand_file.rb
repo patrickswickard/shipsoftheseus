@@ -1,4 +1,3 @@
-#require 'sonnetconfirmer.rb'
 require 'json'
 
 MAX_SONNETS = 154
@@ -6,7 +5,7 @@ MAX_LINES = 14
 
 
 def reset_rand()
-  a = File.open("randorder.json", 'w')
+  a = File.open("diy_randorder.json", 'w')
   all_list = []
   for i in (0..MAX_SONNETS-1)
     for j in (0..MAX_LINES-1)
@@ -18,4 +17,4 @@ def reset_rand()
   a.close
 end
 
-#reset_rand()
+reset_rand()
