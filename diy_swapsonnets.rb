@@ -1,7 +1,7 @@
 require 'json'
 
-a = File.read('user_sonnetshake_mod.json')
-b = File.read('user_randorder.json')
+a = File.read('diy_sonnetshake_mod.json')
+b = File.read('diy_randorder.json')
 
 @all_sonnets = JSON.parse(a)
 @all_rand = JSON.parse(b)
@@ -94,7 +94,8 @@ def swap_line(sonnet_number,line_number)
 end
 
 def swap_next()
-  puts "SHAKESPEARE PLAGIARISM PROJECT - CHAPTER TWO\n"
+  puts "SHAKESPEARE META-PLAGIARISM PROJECT - CHAPTER YOU\n"
+  puts "DIY EDITION\n"
   puts "\n"
   puts "The sun's a thief, and with his great attraction\n"
   puts "Robs the vast sea; the moon's an arrant thief,\n"
