@@ -44,7 +44,8 @@ A randomly-selected sonnet will then appear with one of the lines blank.  You wi
 
 Entering Ctrl-C (in many terminals) or simply entering a blank line will exit without changing the line.
 
-Changes are tracked in the data file diy_sonnetshake_mod.json .  This file can be manually edited in the obvious manner in case of mistakes.  There is currently no automated utility for doing this.
+Changes are tracked in the data file diy_sonnetshake_mod.json .  This file can be manually edited in the obvious manner in case of mistakes.  There is also a utility script for doing this:
+ruby diy_fixline.rb
 
 Finally, when you have finished rewriting all of Shakespeare's sonnets:
 ruby diy_print_on_demand.rb

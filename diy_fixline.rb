@@ -93,39 +93,39 @@ def swap_line(sonnet_number,line_number)
   replace_missing_line(sonnet_number,line_number)
 end
 
-def swap_next()
+def fix_line(sonnet_number,line_number)
+  sonnet = @all_sonnets[sonnet_number]
+  puts "You'll be replacing sonnet #{sonnet_number} line #{line_number} (indexed on zero)"
+  puts "**************************************"
+  print_sonnet_missing_line(sonnet_number, line_number)
+  replace_missing_line(sonnet_number,line_number)
+end
+
+def prompt_fix()
   puts "SHAKESPEARE META-PLAGIARISM PROJECT - CHAPTER YOU\n"
   puts "DIY EDITION\n"
   puts "\n"
-  puts "The sun's a thief, and with his great attraction\n"
-  puts "Robs the vast sea; the moon's an arrant thief,\n"
-  puts "And her pale fire she snatches from the sun.\n"
-  puts "The sea's a thief, whose liquid surge resolves\n"
-  puts "The moon into salt tears; the earth's a thief\n"
-  puts "That feeds and breeds by a composture stol'n\n"
-  puts "From general excrement: each thing's a thief:\n"
-  puts "The laws, your curb and whip, in their rough power\n"
-  puts "Have uncheck'd theft.\n"
+  print "O hateful error, melancholy's child,\n"
+  print "Why dost thou show to the apt thoughts of men\n"
+  print  "The things that are not?\n"
   puts "\n"
-  puts "Timon of Athens, Act IV Scene III"
+  puts "Julius Caesar, Act V Scene III"
   puts "\n"
-  puts "Press enter to continue..."
   gets
-  counter = 0
-  @all_rand.each do |thispair|
-    counter += 1
-    print "Examining random line #{counter} of 2156\n"
-    sonnet_number = thispair[0]
-    line_number = thispair[1]
-    #puts sonnet_number
-    #puts sonnet_line
-    if @all_sonnets[sonnet_number][line_number][1].to_s.empty?
-      swap_line(sonnet_number,line_number)
-      break
-    else
-      puts "this is already done"
-    end
+  puts "which sonnet do you wish to fix (indexed on zero): "
+  sonnet_to_fix = gets.chomp
+  if sonnet_to_fix.to_s.empty?
+    puts "No input detected.  Exiting with no changes."
+    return nil
   end
+  puts "which line do you wish to fix (indexed on zero): "
+  line_to_fix = gets.chomp
+  if line_to_fix.to_s.empty?
+    puts "No input detected.  Exiting with no changes."
+    return nil
+  end
+  print "Fixing sonnet #{sonnet_to_fix.to_i} line #{line_to_fix.to_i}...\n"
+  fix_line(sonnet_to_fix.to_i,line_to_fix.to_i)
 end
 
-swap_next()
+prompt_fix()
